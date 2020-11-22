@@ -1,0 +1,33 @@
+﻿@model  IEnumerable<Jobs_Ooffers_Websit.Models.Category>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div>
+    <h1>مرحبا بك عزيزي الزائر </h1>
+    <p>مرحبا بك في فضاء البحث عن الوظائف باختلاف أصنافها يمكنك نشر وظيفة ان كنت ناشرا ويمكنك التقدم للوظيفة اذا كنت باحثا عم عمل  </p>
+    <p><a href="https://asp.net" class="btn btn-primary btn-lg">المزيد من التفاصيل &raquo;</a></p>
+</div>
+
+
+@foreach (var item in Model)
+{
+    <div class="panel panel-default">
+        <h1 class="panel-heading"> @Html.DisplayFor(modelItem => item.CategoryName) </h1>
+        <h4>@Html.DisplayFor(modelItem => item.CategoryDesc)</h4>
+
+        <div class="row">
+            @foreach (var subItem in item.Jobs)
+            {
+                <div class="col-md-4 thumbnail" style="margin-right: 2em;">
+                    <img src="~/Uploads/@subItem.JobImg" />
+                    <h3> @Html.DisplayFor(modelItem => subItem.JobTitle) </h3>
+                    <h5> @Html.DisplayFor(modelItem => subItem.JobContent) </h5>
+                    @Html.ActionLink("تفاصيل العمل ", "Details", new { JobId = subItem.Id }, new { @class = "btn btn-primary" })
+                </div>
+            }
+
+        </div>
+    </div>
+}
+

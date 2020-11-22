@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/bootstraprtl.min.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">
+                    logo
+                </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">
+                            <i class="glyphicon glyphicon-home"></i>
+                            الرئيسية
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <i class="glyphicon glyphicon-home"></i>
+                            حول الموقع
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="glyphicon glyphicon-home"></i>
+                            اتصل بنا
+                        </a>
+                    </li>
+                    <li>
+                        @using (Html.BeginForm("Search", "Home", FormMethod.Post))
+                        {
+
+                            <input type="text" name="searchName" id="searchName" placeholder="ابحث هنا ......" />
+                        }
+                    </li>
+                </ul>
+
+                @*<ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#">
+                                <i class="glyphicon glyphicon-log-in"></i>
+                                تسجيل الدخول
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="glyphicon glyphicon-lock"></i>
+                                اشتراك
+                            </a>
+                        </li>
+                    </ul>*@
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            @RenderBody()
+        </div>
+
+    </div>
+    <footer class="myfooter " style="background-color:burlywood">
+        <div class="container">
+            <div class="row">
+                <div class=" col-md-4">
+                    <h3>
+                        من نحن
+                    </h3>
+                    <p>
+                        عنا الموقع
+                    </p>
+                </div>
+                <div class=" col-md-4">
+                    <h3>
+                        روابط هامة
+                    </h3>
+                    <ul>
+                        <li><a href="#">وظائف خاصة </a></li>
+                        <li><a href="#">وظائف خاصة</a></li>
+                        <li><a href="#">وظائف خارج البلاد</a></li>
+                        <li><a href="#">وظائف متنوعه</a></li>
+                    </ul>
+                </div>
+                <div class=" col-md-4">
+                    <h3>
+                        تواصل معنا
+                    </h3>
+                    <ul>
+                        <li><a href="#">فيسبوك </a></li>
+                        <li><a href="#">تويتر</a></li>
+                        <li><a href="#">يوتيوب</a></li>
+                        <li><a href="#">ارسل رسالة</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div style="text-align:center;background-color:burlywood">
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </div>
+
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/bootstraprtl.min.js"></script>
+</body>
+</html>

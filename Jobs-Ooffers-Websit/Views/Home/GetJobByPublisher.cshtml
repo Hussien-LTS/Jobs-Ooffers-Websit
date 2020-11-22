@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Jobs_Ooffers_Websit.Models.JobsViewModel>
+
+@foreach (var gr in Model)
+{
+    <h3>
+
+        @gr.JobTitel
+    </h3>
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>
+                اسم الباحث
+            </th>
+            <th>
+                نص الرسالة
+            </th>
+            <th>
+                تاريخ الارسال
+            </th>
+        </tr>
+        @foreach (var item in gr.Items)
+        {
+            <tr>
+                <th>
+                    @item.user.UserName
+                </th>
+                <th>
+                    @item.Msg
+                </th>
+                <th>
+                    @item.ApplyDate
+                </th>
+
+            </tr>
+        }
+    </table>
+}
